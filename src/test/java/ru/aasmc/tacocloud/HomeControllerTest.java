@@ -1,4 +1,4 @@
-package ru.aasmc.tacoclound;
+package ru.aasmc.tacocloud;
 
 import static org.hamcrest.Matchers.containsString;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;

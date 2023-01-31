@@ -1,4 +1,4 @@
-package ru.aasmc.tacoclound;
+package ru.aasmc.tacocloud;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;

@@ -1,4 +1,4 @@
-package ru.aasmc.tacoclound;
+package ru.aasmc.tacocloud;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
