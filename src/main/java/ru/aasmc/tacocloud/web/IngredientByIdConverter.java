@@ -1,14 +1,16 @@
 package ru.aasmc.tacocloud.web;
 
-import org.springframework.core.convert.converter.Converter;
-import org.springframework.lang.NonNull;
-import ru.aasmc.tacocloud.Ingredient;
-
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.core.convert.converter.Converter;
+import org.springframework.stereotype.Component;
+
+import ru.aasmc.tacocloud.Ingredient;
+
 import static ru.aasmc.tacocloud.Ingredient.Type;
 
+@Component
 public class IngredientByIdConverter implements Converter<String, Ingredient> {
     private Map<String, Ingredient> ingredientMap = new HashMap<>();
 
@@ -36,7 +38,7 @@ public class IngredientByIdConverter implements Converter<String, Ingredient> {
     }
 
     @Override
-    public Ingredient convert(@NonNull String id) {
+    public Ingredient convert(String id) {
         return ingredientMap.get(id);
     }
 }
