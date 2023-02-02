@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import ru.aasmc.tacocloud.Ingredient;
 import ru.aasmc.tacocloud.Taco;
 import ru.aasmc.tacocloud.TacoOrder;
+import ru.aasmc.tacocloud.TacoUDT;
 import ru.aasmc.tacocloud.data.IngredientRepository;
 
 import javax.validation.Valid;
@@ -33,7 +34,7 @@ public class DesignTacoController {
     @ModelAttribute
     public void addIngredientsToModel(Model model) {
         List<Ingredient> ingredients = new ArrayList<>();
-        ingredientRepo.findAll().forEach(i -> ingredients.add(i));
+        ingredientRepo.findAll().forEach(ingredients::add);
 
         Type[] types = Ingredient.Type.values();
         for (Type type : types) {
@@ -66,7 +67,7 @@ public class DesignTacoController {
             return "design";
         }
 
-        tacoOrder.addTaco(taco);
+        tacoOrder.addTaco(new TacoUDT(taco.getName(), taco.getIngredients()));
 
         return "redirect:/orders/current";
     }

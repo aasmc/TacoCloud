@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import ru.aasmc.tacocloud.data.IngredientRepository;
 
-import static ru.aasmc.tacocloud.Ingredient.*;
+import static ru.aasmc.tacocloud.Ingredient.Type;
 
 @SpringBootApplication
 public class TacoCloundApplication {
