@@ -66,13 +66,12 @@
             <artifactId>spring-boot-starter-validation</artifactId>
         </dependency>
         <!-- end::validationStarter[] -->
-
-        <!-- tag::springJdbcTemplate[] -->
+        <!-- tag::springDataJpa[] -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-jdbc</artifactId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
-        <!-- end::springJdbcTemplate[] -->
+        <!-- end::springDataJpa[] -->
         <!-- tag::h2database[] -->
         <dependency>
             <groupId>com.h2database</groupId>

@@ -2,8 +2,7 @@ package ru.aasmc.tacocloud.data;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import ru.aasmc.tacocloud.Ingredient;
 import ru.aasmc.tacocloud.Taco;
 import ru.aasmc.tacocloud.TacoOrder;
@@ -11,16 +10,15 @@ import ru.aasmc.tacocloud.TacoOrder;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static ru.aasmc.tacocloud.Ingredient.*;
+import static ru.aasmc.tacocloud.Ingredient.Type;
 
-@SpringBootTest
+@DataJpaTest
 public class OrderRepositoryTests {
 
     @Autowired
     OrderRepository orderRepo;
 
     @Test
-    @DirtiesContext(methodMode = DirtiesContext.MethodMode.BEFORE_METHOD)
     public void saveOrderWithTwoTacos() {
         TacoOrder order = new TacoOrder();
         order.setDeliveryName("Test McTest");
@@ -56,7 +54,7 @@ public class OrderRepositoryTests {
         assertThat(fetchedOrder.getCcNumber()).isEqualTo("4111111111111111");
         assertThat(fetchedOrder.getCcExpiration()).isEqualTo("10/23");
         assertThat(fetchedOrder.getCcCVV()).isEqualTo("123");
-        assertThat(fetchedOrder.getPlacedAt()).isEqualTo(savedOrder.getPlacedAt());
+        assertThat(fetchedOrder.getPlacedAt().getTime()).isEqualTo(savedOrder.getPlacedAt().getTime());
         List<Taco> tacos = fetchedOrder.getTacos();
         assertThat(tacos.size()).isEqualTo(2);
         assertThat(tacos).containsExactlyInAnyOrder(taco1, taco2);
