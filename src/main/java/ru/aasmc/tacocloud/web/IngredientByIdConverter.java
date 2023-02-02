@@ -1,16 +1,10 @@
 package ru.aasmc.tacocloud.web;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
-
 import ru.aasmc.tacocloud.Ingredient;
 import ru.aasmc.tacocloud.data.IngredientRepository;
-
-import static ru.aasmc.tacocloud.Ingredient.Type;
 
 @Component
 public class IngredientByIdConverter implements Converter<String, Ingredient> {
