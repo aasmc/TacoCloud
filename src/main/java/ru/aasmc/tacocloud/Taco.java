@@ -8,8 +8,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-
-
+/**
+ * Since Taco class is only ever persisted as a member of the TacoOrder
+ * aggregate, Taco class doesn't need to be annotated as @Document, and
+ * it doesn't have to have an @Id property.
+ */
 @Data
 public class Taco {
 

@@ -19,6 +19,11 @@ public class TacoOrder implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    /**
+     * By choosing a String as an @Id, we get the benefit of Mongo
+     * automatically assigning a value to it when it is saved (assuming
+     * it is null).
+     */
     @Id
     private String id;
 
