@@ -1,4 +1,4 @@
-package ru.aasmc.tacocloud;
+package ru.aasmc.tacocloud.model;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;

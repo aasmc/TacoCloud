@@ -2,7 +2,7 @@ package ru.aasmc.tacocloud.web;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import ru.aasmc.tacocloud.Ingredient;
+import ru.aasmc.tacocloud.model.Ingredient;
 import ru.aasmc.tacocloud.data.IngredientRepository;
 
 import java.util.Optional;
@@ -10,7 +10,7 @@ import java.util.Optional;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
-import static ru.aasmc.tacocloud.Ingredient.*;
+import static ru.aasmc.tacocloud.model.Ingredient.*;
 
 public class IngredientByIdConverterTest {
 

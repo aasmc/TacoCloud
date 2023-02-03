@@ -3,7 +3,7 @@ package ru.aasmc.tacocloud.web;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
-import ru.aasmc.tacocloud.Ingredient;
+import ru.aasmc.tacocloud.model.Ingredient;
 import ru.aasmc.tacocloud.data.IngredientRepository;
 
 @Component

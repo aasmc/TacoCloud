@@ -3,14 +3,14 @@ package ru.aasmc.tacocloud.data;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import ru.aasmc.tacocloud.Ingredient;
-import ru.aasmc.tacocloud.Taco;
-import ru.aasmc.tacocloud.TacoOrder;
+import ru.aasmc.tacocloud.model.Ingredient;
+import ru.aasmc.tacocloud.model.Taco;
+import ru.aasmc.tacocloud.model.TacoOrder;
 
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static ru.aasmc.tacocloud.Ingredient.Type;
+import static ru.aasmc.tacocloud.model.Ingredient.Type;
 
 @DataJpaTest
 public class OrderRepositoryTests {

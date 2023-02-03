@@ -3,12 +3,12 @@ package ru.aasmc.tacocloud.data;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import ru.aasmc.tacocloud.Ingredient;
+import ru.aasmc.tacocloud.model.Ingredient;
 
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static ru.aasmc.tacocloud.Ingredient.Type;
+import static ru.aasmc.tacocloud.model.Ingredient.Type;
 
 @SpringBootTest
 public class IngredientRepositoryTests {
