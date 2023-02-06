@@ -1,6 +1,7 @@
 package ru.aasmc.tacocloud.model;
 
 import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -21,6 +22,7 @@ public class Taco {
     @Size(min=5, message="Name must be at least 5 characters long")
     private String name;
 
+    @CreationTimestamp
     private Date createdAt = new Date();
 
     @Size(min=1, message="You must choose at least 1 ingredient")
