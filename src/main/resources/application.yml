@@ -2,3 +2,32 @@ spring:
   datasource:
     generate-unique-name: false
     name: tacocloud
+
+logging:
+  level:
+    root: WARN
+    org:
+      springframework:
+        security:
+          DEBUG
+
+taco:
+  orders:
+    pageSize: 10
+
+  discount:
+    codes:
+      abcdef: 10
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+  datasource:
+    url: jdbc:mysql://localhost/tacocloud
+    username: tacouser
+    password: tacopassword
+
+logging:
+  level:
+    ru.aasmc.tacocloud: WARN

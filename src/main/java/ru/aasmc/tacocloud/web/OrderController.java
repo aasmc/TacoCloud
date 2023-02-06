@@ -1,13 +1,17 @@
 package ru.aasmc.tacocloud.web;
 
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
 import ru.aasmc.tacocloud.model.TacoOrder;
 import ru.aasmc.tacocloud.data.OrderRepository;
 import ru.aasmc.tacocloud.model.User;
+import ru.aasmc.tacocloud.properties.OrderProperties;
 
 import javax.validation.Valid;
 
@@ -17,9 +21,11 @@ import javax.validation.Valid;
 public class OrderController {
 
     private OrderRepository orderRepo;
+    private final OrderProperties props;
 
-    public OrderController(OrderRepository orderRepo) {
+    public OrderController(OrderRepository orderRepo, OrderProperties props) {
         this.orderRepo = orderRepo;
+        this.props = props;
     }
 
     @GetMapping("/current")
@@ -61,5 +67,39 @@ public class OrderController {
         return "redirect:/";
     }
 
+    public String ordersForUser(@AuthenticationPrincipal User user, Model model) {
+        Pageable pageable = PageRequest.of(0, props.getPageSize());
+        model.addAttribute("orders",
+                orderRepo.findByUserOrderByPlacedAtDesc(user, pageable));
+        return "orderList";
+    }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

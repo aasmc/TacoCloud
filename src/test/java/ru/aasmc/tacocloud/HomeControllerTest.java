@@ -13,8 +13,10 @@ import ru.aasmc.tacocloud.data.IngredientRepository;
 import ru.aasmc.tacocloud.data.OrderRepository;
 import ru.aasmc.tacocloud.data.TacoRepository;
 import ru.aasmc.tacocloud.data.UserRepository;
-import ru.aasmc.tacocloud.security.SecurityConfig;
+import ru.aasmc.tacocloud.config.SecurityConfig;
 import ru.aasmc.tacocloud.web.AdminController;
+import ru.aasmc.tacocloud.web.DiscountController;
+import ru.aasmc.tacocloud.web.OrderController;
 
 import static org.hamcrest.Matchers.containsString;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -51,6 +53,12 @@ public class HomeControllerTest {
 
     @MockBean
     private AdminController adminController;
+
+    @MockBean
+    private DiscountController discountController;
+
+    @MockBean
+    private OrderController orderController;
 
     @Test
     public void testHomePage() throws Exception {

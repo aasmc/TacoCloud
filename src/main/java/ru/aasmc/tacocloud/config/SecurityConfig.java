@@ -1,4 +1,4 @@
-package ru.aasmc.tacocloud.security;
+package ru.aasmc.tacocloud.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
