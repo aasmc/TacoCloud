@@ -9,7 +9,6 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.config.annotation.web.configurers.oauth2.server.resource.OAuth2ResourceServerConfigurer;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -26,17 +25,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers(HttpMethod.OPTIONS).permitAll() // needed for Angular/CORS
-                .antMatchers(HttpMethod.POST, "/api/ingredients")
-                .hasAuthority("SCOPE_writeIngredients")
-                .antMatchers(HttpMethod.DELETE, "/api//ingredients")
-                .hasAuthority("SCOPE_deleteIngredients")
-                .antMatchers("/api//tacos", "/api//orders/**")
+                .antMatchers(HttpMethod.OPTIONS).permitAll()
+                .antMatchers(HttpMethod.POST, "/api/ingredients").permitAll()
+                .antMatchers("/api/tacos", "/api/orders/**")
                 .permitAll()
+                .antMatchers(HttpMethod.PATCH, "/api/ingredients").permitAll()
                 .antMatchers("/**").access("permitAll")
-                .and()
-                .oauth2ResourceServer(oauth2 -> oauth2.jwt())
 
+                .and()
+                .formLogin()
+                .loginPage("/login")
+
+                .and()
                 .httpBasic()
                 .realmName("Taco Cloud")
 
@@ -48,12 +48,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf()
                 .ignoringAntMatchers("/h2-console/**", "/api/**")
 
-                // Allow pages to be loaded in frames from the same origin; needed for H2-Console
                 .and()
                 .headers()
                 .frameOptions()
-                .sameOrigin()
-        ;
+                .sameOrigin();
     }
 
     @Bean

@@ -9,11 +9,13 @@
         <module>tacocloud-domain</module>
         <module>tacocloud-restclient</module>
         <module>tacocloud-security</module>
-        <module>tacocloud-ui</module>
         <module>tacocloud-web</module>
+        <module>tacocloud-ui</module>
         <module>tacocloud</module>
         <module>tacocloud-admin</module>
         <module>auth-server</module>
+        <module>tacocloud-kitchen</module>
+        <module>tacocloud-messaging-jms</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
