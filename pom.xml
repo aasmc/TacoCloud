@@ -18,6 +18,8 @@
         <module>tacocloud-messaging-jms</module>
         <module>tacocloud-messaging-rabbitmq</module>
         <module>tacocloud-messaging-kafka</module>
+        <module>simple-flow</module>
+        <module>tacocloud-email</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
